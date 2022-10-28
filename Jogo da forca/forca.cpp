@@ -16,7 +16,6 @@ int main(){
     char secret[sizeW];
     int size=0,chances=ChancesMAX,rights=0;
     bool right=false;
-    bool win=false;
 
     cout << "\nDigite a palavra:";
     cin >> word;

@@ -1,17 +1,18 @@
 #include<iostream>
 #include<string.h>
-#define sizeW 30
-#define ChancesMAX 4
+
 using namespace std;
 
+const int ChancesMAX=4;
 int main(){
-    init:
-    
+
     cout << "\n###################################\n";
     cout << "JOGO DA FORCA, FEITO POR <PVICTOR>\n";
     cout << "###################################\n";
-
-    char word[sizeW],letter,op,secret[sizeW];
+    char op;
+  do{
+    string word,secret;
+    char letter;
 
     int size=0,chances=ChancesMAX,rights=0;
 
@@ -21,11 +22,13 @@ int main(){
     cin >> word;
     system("cls");
 
-    for(int i=0;i<sizeW;i++)
-      secret[i]='-'; 
-
     for(int i=0;word[i]!='\0';i++)
       size++;
+
+    for(int i=0;i<size;i++){
+      secret[i]='-';
+    }
+           
 
     while((chances>0) && (rights<size)){
 
@@ -58,16 +61,12 @@ int main(){
       cout << "#####################\n\n";      
       cout<< "Deseja jogar de novo?\n";
       cin >> op;
-      if(op=='s' || op=='S')
-        goto init;
     }else{
       cout << "#####################\n";
       cout << "Uma pena! Voce perdeu\n";
       cout << "#####################\n\n";
       cout<< "Deseja jogar de novo?\n";
       cin >> op;
-      if(op=='s' || op=='S')
-        goto init;
-
     }
+  }while(op=='s' || op=='S');
 }

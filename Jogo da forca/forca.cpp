@@ -11,24 +11,22 @@ int main(){
     cout << "JOGO DA FORCA, FEITO POR <PVICTOR>\n";
     cout << "###################################\n";
 
-    char word[sizeW];
-    char letter,op;
-    char secret[sizeW];
+    char word[sizeW],letter,op,secret[sizeW];
+
     int size=0,chances=ChancesMAX,rights=0;
+
     bool right=false;
 
     cout << "\nDigite a palavra:";
     cin >> word;
     system("cls");
 
-    for(int i=0;i<sizeW;i++){
-      secret[i]='-';  
-    }
+    for(int i=0;i<sizeW;i++)
+      secret[i]='-'; 
 
-    for(int i=0;word[i]!='\0';i++){
-        size++;
-    }
-  
+    for(int i=0;word[i]!='\0';i++)
+      size++;
+
     while((chances>0) && (rights<size)){
 
       cout << "Voce tem " << chances << " chanches para adivinhar a palavra!\n\n";
@@ -47,11 +45,12 @@ int main(){
         cout<< "size=" << size;
       }
     }
-    if(!right){
-        chances--;
-    }
+    if(!right)
+      chances--;
+    
     right=false;
     system("cls");
+
     }
     if(rights==size){
       cout << "#####################\n";
@@ -60,7 +59,7 @@ int main(){
       cout<< "Deseja jogar de novo?\n";
       cin >> op;
       if(op=='s' || op=='S')
-          goto init;
+        goto init;
     }else{
       cout << "#####################\n";
       cout << "Uma pena! Voce perdeu\n";

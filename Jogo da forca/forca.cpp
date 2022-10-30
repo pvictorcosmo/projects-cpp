@@ -1,72 +1,62 @@
 #include<iostream>
 #include<string.h>
+#include<cctype>
 
 using namespace std;
 
-const int ChancesMAX=4;
 int main(){
 
-    cout << "\n###################################\n";
-    cout << "JOGO DA FORCA, FEITO POR <PVICTOR>\n";
-    cout << "###################################\n";
-    char op;
+
+  cout << "\n###################################\n";
+  cout << "JOGO DA FORCA, FEITO POR <PVICTOR>\n";
+  cout << "###################################\n";
+  char restart;
   do{
-    string word,secret;
-    char letter;
-
-    int size=0,chances=ChancesMAX,rights=0;
-
-    bool right=false;
-
-    cout << "\nDigite a palavra:";
-    cin >> word;
-    system("cls");
-
-    for(int i=0;word[i]!='\0';i++)
-      size++;
-
-    for(int i=0;i<size;i++){
-      secret[i]='-';
-    }
-           
-
-    while((chances>0) && (rights<size)){
-
-      cout << "Voce tem " << chances << " chanches para adivinhar a palavra!\n\n";
-      for(int i=0;i<size;i++)
-        cout  << " " << secret[i] << " ";
-
-    cout << "\n\nDigite uma letra:";
-    cin >> letter;
-
-    for(int i=0;i<size;i++){
-      if(letter == word[i]){
-        right=true;
-        secret[i]=word[i];
-        rights++;
-        cout << "R=" << rights;
-        cout<< "size=" << size;
-      }
-    }
-    if(!right)
-      chances--;
     
-    right=false;
-    system("cls");
+  bool right=false;
 
+  cout << "\nDigite a palavra:";
+  string word;
+  cin >> word;
+
+  int wordSize= int(word.size());
+  string secret(wordSize,'-');
+  int chances{4};
+  int rights{0};
+  system("cls");
+  
+  while((chances>0) && (rights<wordSize)){
+    cout << "Voce tem " << chances << " chanches para adivinhar a palavra!\n\n";
+    for(int i=0;i<wordSize;i++)
+      cout  << " " << secret[i] << " ";
+
+  cout << "\n\nDigite uma letra:";
+  char letter;
+  cin >> letter;
+  bool right{false};
+  for(int i=0;i<wordSize;i++)
+    if(toupper(letter) == toupper(word[i])){
+      right=true;
+      secret[i]=word[i];
+      rights++;
     }
-    if(rights==size){
+  
+  if(!right)
+    chances--;
+                 
+  right=false;  
+  system("cls");
+    }
+    if(rights==wordSize){
       cout << "#####################\n";
       cout << "PARABENS,voce ganhou!\n";
-      cout << "#####################\n\n";      
-      cout<< "Deseja jogar de novo?\n";
-      cin >> op;
+      cout << "#####################\n\n";  
+          
     }else{
       cout << "#####################\n";
       cout << "Uma pena! Voce perdeu\n";
       cout << "#####################\n\n";
-      cout<< "Deseja jogar de novo?\n";
-      cin >> op;
     }
-  }while(op=='s' || op=='S');
+    
+  }while(cin >> restart && toupper(restart) =='S');
 }

@@ -8,6 +8,8 @@
 
 <p align="justify">
   Projeto simples feito em C++,utilizando conceitos de programação orientada a objetos, esse projeto foi feito para fins educativos!
+  
+  O projeto pede seus dados de altura e peso e baseado nisso ele informa seu IMC, e informa onde você se encaixa nos padrões internacionais de Massa corporal.
 </p>
 
 ----

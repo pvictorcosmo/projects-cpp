@@ -7,13 +7,12 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Descrição breve do projeto compondo um paragrafo ou dois. 
+  Projeto simples feito em C++,utilizando conceitos de programação orientada a objetos, esse projeto foi feito para fins educativos!
 </p>
 
 ----
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-- ``Java 8``
-- ``InteliJ IDEA``
-- ``Paradigma de orientação a objetos``
+- ``C++``
+- ``Programação de orientação a objetos``
